@@ -14,12 +14,10 @@ def minOperations(n: int) -> int:
 
     while len(body) < n:
         if n % len(body) == 0:
-            # If the length of body is a divisor of n, we do a Copy All and a Paste
             next_copy = body
-            operations += 2  # One for Copy All, one for Paste
-            body += body  # Doubling the body
+            operations += 2
+            body += body
         else:
-            # If not, we only do a Paste operation
             body += next_copy
             operations += 1
 
