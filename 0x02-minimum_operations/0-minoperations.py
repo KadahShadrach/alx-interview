@@ -3,13 +3,13 @@
 Minimum operations
 """
 
-def minOperations(n: int) -> int
+def minOperations(n: int) -> int:
     """ Minimum Operations needed to get n S characters """
     next = 'S'
     body = 'S'
     op = 0
     while (len(body) < n):
-        if n % len(body) == 0
+        if n % len(body) == 0:
             op += 2
             next = body
             body += body
