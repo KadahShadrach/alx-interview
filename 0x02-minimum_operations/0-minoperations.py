@@ -3,7 +3,7 @@
 Minimum operations
 """
 
-def minOperations(n: int) -> int:
+def min_operations(n: int) -> int:
     """ Minimum Operations needed to get n S characters """
     if n < 2:
         return 0
