@@ -5,19 +5,22 @@ Minimum operations
 
 def minOperations(n: int) -> int:
     """ Minimum Operations needed to get n S characters """
-    next = 'S'
+    if n < 2:
+        return 0
+
+    next_copy = 'S'
     body = 'S'
-    op = 0
-    while (len(body) < n):
+    operations = 0
+
+    while len(body) < n:
         if n % len(body) == 0:
-            op += 2
-            next = body
-            body += body
-
+            # If the length of body is a divisor of n, we do a Copy All and a Paste
+            next_copy = body
+            operations += 2  # One for Copy All, one for Paste
+            body += body  # Doubling the body
         else:
+            # If not, we only do a Paste operation
+            body += next_copy
+            operations += 1
 
-            op += 1
-            body += next
-        if len(body)  !=n:
-            return 0
-        return op
+    return operations
