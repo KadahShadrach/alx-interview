@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-"""
-Test 0x07 - Rotate 2D Matrix
-"""
-rotate_2d_matrix = __import__('0-rotate_2d_matrix').rotate_2d_matrix
+""" Rotate 2D Matrix """
 
-if __name__ == "__main__":
-    matrix = [[1, 2, 3],
-              [4, 5, 6],
-              [7, 8, 9]]
 
-    rotate_2d_matrix(matrix)
-    print(matrix)
+def rotate_2d_matrix(matrix):
+    """ Given `n` x `n` 2D Matrix
+    Rotate it 90 degrees clockwise
+    """
+    # Replica Matrix
+    replica = matrix[:]
+
+    for i in range(len(matrix)):
+        # retract column from replica
+        column = [row[i] for row in replica]
+        # Replace in matrix in reverse order
+        matrix[i] = column[::-1]
